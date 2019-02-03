@@ -24,9 +24,16 @@ footer {
     color: white;
     text-align: center;
     background: rgba(0,0,0,0.3);
+    transition: all 0.07s;
 }
 
 kbd{
     display: block;
     font-size: 40px;
+}
+
+.playing{
+    border-color: white;
+    transform: scale(1.1);
+    box-shadow: 5px 10px #888888;
 }

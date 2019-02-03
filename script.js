@@ -6,6 +6,9 @@ window.addEventListener('keydown', function(e) {
 
     //Is there an element on the page that has an audio element?
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+
+    //We want to grab the key associated with this so that we can add animation
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
    
     if(!audio) return; //stop function from running altogether if there is no audio component
 
@@ -16,8 +19,26 @@ window.addEventListener('keydown', function(e) {
 
     //play audio element
     audio.play();
+
+    //adding a class of 'playing' when the key is pressed
+    key.classList.add('playing')
+
 });
 
+//Using console for e shows the transition end event
+//Transitioned is an event listener
+function removeTransition(e){
+    //console.log(e);
+    if(e.propertyName !== 'transform') return; //skip it if its not a transform
+    console.log(e.propertyName);
+
+    //'this' is equal to the key
+    this.classList.remove('playing');
+
+};
+
+const keys = document.querySelectorAll('.key')
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 
 
