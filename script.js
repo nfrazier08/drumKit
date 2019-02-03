@@ -1,7 +1,7 @@
 window.onload = function(){
 
 //We want to listen for the key being pressed
-window.addEventListener('keydown', function(e) {
+function playSound (e){
     //console.log(e.keyCode);
 
     //Is there an element on the page that has an audio element?
@@ -22,13 +22,14 @@ window.addEventListener('keydown', function(e) {
 
     //adding a class of 'playing' when the key is pressed
     key.classList.add('playing')
-
-});
+}
 
 //Using console for e shows the transition end event
 //Transitioned is an event listener
 function removeTransition(e){
     //console.log(e);
+
+    //We are using transform because when we console.log the event, the longest event is transformed(it's the property name). So we want to look at the the longest activity. 
     if(e.propertyName !== 'transform') return; //skip it if its not a transform
     console.log(e.propertyName);
 
@@ -40,7 +41,7 @@ function removeTransition(e){
 const keys = document.querySelectorAll('.key')
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
+//On key down, we are calling the playSound function
+window.addEventListener('keydown', playSound);
 
-
-
-}
+};
