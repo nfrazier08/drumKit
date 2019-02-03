@@ -1,0 +1,32 @@
+body {
+    background-image: url("image/panteek_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    bottom: 0;
+    position: absolute;    
+}
+
+.keys {
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   flex: 1;
+   min-height: 100vh;
+}
+
+.key{
+    border: .3rem solid #808000;
+    padding: 1rem .5rem;
+    margin: 1rem;
+    color: white;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+}
+
+kbd{
+    display: block;
+    font-size: 40px;
+}
